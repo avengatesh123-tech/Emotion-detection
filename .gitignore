@@ -1,0 +1,20 @@
+# Python
+venv/
+__pycache__/
+*.pyc
+
+# Models
+*.h5
+*.pt
+*.pth
+*.onnx
+
+# Data
+data/
+*.csv
+
+datasets/
+
+# OS files
+.DS_Store
+Thumbs.db
