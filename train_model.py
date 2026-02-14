@@ -7,8 +7,8 @@ img_size = 48
 batch_size = 64
 epochs = 12
 
-train_dir = "data/dataset/train"
-test_dir = "data/dataset/test"
+train_dir = "data/datasets/train"
+test_dir = "data/datasets/test"
 
 train_datagen = ImageDataGenerator(
     rescale=1./255,
