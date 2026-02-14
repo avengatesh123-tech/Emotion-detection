@@ -75,6 +75,15 @@ source venv/bin/activate
 pip install -r requirements.txt
 ```
 
+## Dataset
+
+The project uses the **FER (Facial Expression Recognition)** dataset.
+
+To convert the dataset into the required format:
+
+```bash
+python convert_fer.py
+```
 ---
 
 ## Usage
@@ -103,19 +112,6 @@ This will:
 * Start the webcam
 * Detect faces
 * Display predicted emotions in real time
-
----
-
-## Dataset
-
-The project uses the **FER (Facial Expression Recognition)** dataset.
-
-To convert the dataset into the required format:
-
-```bash
-python convert_fer.py
-```
-
 ---
 
 ## Output
