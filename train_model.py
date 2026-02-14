@@ -5,7 +5,7 @@ from tensorflow.keras.preprocessing.image import ImageDataGenerator
 
 img_size = 48
 batch_size = 64
-epochs = 20
+epochs = 12
 
 train_dir = "data/dataset/train"
 test_dir = "data/dataset/test"
