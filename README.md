@@ -1,188 +1,162 @@
-Facial Emotion Recognition System (CNN + Live Camera)
-Project Overview
+# Facial Emotion Recognition System
 
-This project implements a Convolutional Neural Network (CNN) for Facial Emotion Recognition using the FER-2013 dataset.
+![Python](https://img.shields.io/badge/Python-3.10+-blue?logo=python)
+![TensorFlow](https://img.shields.io/badge/TensorFlow-2.x-FF6F00?logo=tensorflow&logoColor=white)
+![OpenCV](https://img.shields.io/badge/OpenCV-4.x-5C3EE8?logo=opencv&logoColor=white)
+![Build](https://img.shields.io/badge/Build-Stable-success)
+![License](https://img.shields.io/badge/License-MIT-green)
 
-The system can:
+---
 
-Train a CNN model on emotion images
+## Overview
 
-Evaluate model performance
+This project implements a Convolutional Neural Network (CNN) for Facial Emotion Recognition using the FER-2013 dataset.  
+The system provides an end-to-end pipeline including model training, evaluation, and real-time inference using a mobile IP Webcam.
 
-Run real-time emotion detection using mobile IP Webcam
+The model classifies facial expressions into the following categories:
 
-The model classifies facial expressions into:
+- Angry  
+- Disgust  
+- Fear  
+- Happy  
+- Neutral  
+- Sad  
+- Surprise  
 
-Angry
+---
 
-Disgust
+## Dataset
 
-Fear
+Dataset: FER-2013  
+Download: https://www.kaggle.com/datasets/msambare/fer2013  
 
-Happy
-
-Neutral
-
-Sad
-
-Surprise
-
-Dataset
-
-Dataset used: FER-2013
-
-Download from Kaggle:
-
-https://www.kaggle.com/datasets/msambare/fer2013
-
-After extraction, organize the dataset as:
+After downloading and extracting, structure the dataset as follows:
 
 data/
-   datasets/
-   train/
-      angry/
-      disgust/
-      fear/
-      happy/
-      neutral/
-      sad/
-      surprise/
-   test/
-      angry/
-      disgust/
-      fear/
-      happy/
-      neutral/
-      sad/
-      surprise/
+|__ datasets
+|
+├── train/
+│   ├── angry/
+│   ├── disgust/
+│   ├── fear/
+│   ├── happy/
+│   ├── neutral/
+│   ├── sad/
+│   └── surprise/
+└── test/
+    ├── angry/
+    ├── disgust/
+    ├── fear/
+    ├── happy/
+    ├── neutral/
+    ├── sad/
+    └── surprise/
 
-Each folder must contain 48x48 grayscale images.
+All images must be 48x48 grayscale.
 
-Environment Setup (Windows)
-Step 1: Create Virtual Environment
-python -m venv venv
-Step 2: Activate Environment
-venv\Scripts\activate
-Step 3: Install Dependencies
-pip install tensorflow opencv-python numpy matplotlib
-Training the Model
+---
 
-Run:
+## Environment Setup (Windows)
 
-python train.py
+Create virtual environment:
 
-What happens internally:
+    python -m venv venv
 
-Images loaded using ImageDataGenerator
+Activate virtual environment:
 
-Rescaled to 0–1
+    venv\Scripts\activate
 
-CNN model is trained
+Install required dependencies:
 
-Validation accuracy is monitored
+    pip install tensorflow opencv-python numpy matplotlib
 
-Model is saved as:
+---
 
-model/emotion_model.h5
+## Model Training
 
-Training may take several minutes depending on system performance.
+To train the CNN model:
 
-Running Real-Time Emotion Detection (IP Webcam)
+    python train.py
 
-This project supports live detection using your mobile camera.
+Training process includes:
 
-Step 1: Install IP Webcam App
+- Loading images using ImageDataGenerator  
+- Normalizing pixel values (0–1)  
+- Training CNN model  
+- Monitoring validation accuracy  
+- Saving trained model  
 
-Install IP Webcam app from Play Store on your Android device.
+After training, the model is stored as:
 
-Step 2: Connect to Same WiFi
+    model/emotion_model.h5
 
-Your:
+---
 
-Laptop
+## Real-Time Emotion Detection (IP Webcam Integration)
 
-Mobile phone
+Network Requirement:  
+Laptop and mobile device must be connected to the same WiFi network.
 
-Must be connected to the SAME WiFi network.
+### Setup Steps
 
-If not, it will not work.
+1. Install IP Webcam application on Android device.  
+2. Open the application.  
+3. Scroll down and select "Start Server".  
+4. The app will display an IP address such as:
 
-Step 3: Start Server in IP Webcam
+    http://192.168.1.5:8080
 
-Open IP Webcam app
+### Configure main.py
 
-Scroll down
+Open main.py and update the video capture URL:
 
-Click Start Server
+    url = "http://192.168.1.5:8080/video"
+    cap = cv2.VideoCapture(url)
 
-App will show an IP address like:
+Replace the IP address with the one displayed in your mobile app.
 
-http://192.168.1.5:8080
+### Run Live Detection
 
-This is your mobile camera stream.
+    python main.py
 
-Step 4: Copy IP Address
+The system will:
 
-Copy only the base address:
+- Capture live video stream  
+- Detect faces  
+- Predict emotion  
+- Display emotion label in real time  
 
-http://192.168.1.5:8080
-Step 5: Add IP in main.py
+Press 'q' to exit the application.
 
-Open main.py and modify the video capture line:
+---
 
-url = "http://192.168.1.5:8080/video"
-cap = cv2.VideoCapture(url)
+## Model Architecture
 
-Replace the IP with your mobile’s IP.
+The CNN architecture includes:
 
-Important:
-The IP must match exactly what the app shows.
+- Convolutional layers  
+- ReLU activations  
+- MaxPooling layers  
+- Dropout regularization  
+- Fully connected dense layers  
+- Softmax output layer  
 
-Step 6: Run Live Detection
-python main.py
+Configuration:
 
-Now:
+Loss Function: Categorical Crossentropy  
+Optimizer: Adam  
+Evaluation Metric: Accuracy  
 
-Your laptop connects to mobile camera
+---
+## Project Objective
 
-Face is detected
+- Implement deep learning-based facial emotion recognition  
+- Build a structured training and inference pipeline  
+- Deploy real-time prediction system  
+- Demonstrate applied computer vision integration  
 
-Emotion is predicted in real-time
+---
 
-Output label is displayed on screen
-
-Press q to exit.
-
-Model Details
-
-Architecture includes:
-
-Convolution Layers
-
-ReLU Activation
-
-MaxPooling
-
-Dropout
-
-Dense Layers
-
-Softmax Output
-
-Loss Function: Categorical Crossentropy
-Optimizer: Adam
-Metric: Accuracy
-
-Project Objective
-
-Learn CNN-based image classification
-
-Understand real-time model deployment
-
-Integrate mobile camera streaming with Python
-
-Build an end-to-end emotion recognition system
-
-Author
+## Author
 
 Vengatesh A
