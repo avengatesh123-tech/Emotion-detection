@@ -26,37 +26,6 @@ The model classifies facial expressions into the following categories:
 ---
 
 ## Dataset
-
-Dataset: FER-2013  
-Download: https://www.kaggle.com/datasets/msambare/fer2013  
-
-After downloading and extracting, structure the dataset as follows:
-
-data/
-|__ datasets
-|
-├── train/
-│   ├── angry/
-│   ├── disgust/
-│   ├── fear/
-│   ├── happy/
-│   ├── neutral/
-│   ├── sad/
-│   └── surprise/
-└── test/
-    ├── angry/
-    ├── disgust/
-    ├── fear/
-    ├── happy/
-    ├── neutral/
-    ├── sad/
-    └── surprise/
-
-All images must be 48x48 grayscale.
-
----
-## Dataset
-
 Dataset: FER-2013  
 Download: https://www.kaggle.com/datasets/msambare/fer2013  
 
