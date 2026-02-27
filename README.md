@@ -55,6 +55,36 @@ data/
 All images must be 48x48 grayscale.
 
 ---
+## Dataset
+
+Dataset: FER-2013  
+Download: https://www.kaggle.com/datasets/msambare/fer2013  
+
+After downloading and extracting, organize the dataset as follows:
+
+```
+data/
+|__datasets
+|
+├── train/
+│   ├── angry/
+│   ├── disgust/
+│   ├── fear/
+│   ├── happy/
+│   ├── neutral/
+│   ├── sad/
+│   └── surprise/
+└── test/
+    ├── angry/
+    ├── disgust/
+    ├── fear/
+    ├── happy/
+    ├── neutral/
+    ├── sad/
+    └── surprise/
+```
+
+All images must be 48x48 grayscale.
 
 ## Environment Setup (Windows)
 
