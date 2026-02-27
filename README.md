@@ -67,7 +67,7 @@ Activate virtual environment:
 
 Install required dependencies:
 
-    pip install -r requiremennts.txt
+    pip install -r requirements.txt
 
 ---
 
