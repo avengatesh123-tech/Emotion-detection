@@ -67,7 +67,7 @@ Activate virtual environment:
 
 Install required dependencies:
 
-    pip install tensorflow opencv-python numpy matplotlib
+    pip install -r requiremennts.txt
 
 ---
 
@@ -75,7 +75,7 @@ Install required dependencies:
 
 To train the CNN model:
 
-    python train.py
+    python train_model.py
 
 Training process includes:
 
